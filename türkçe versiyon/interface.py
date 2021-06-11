@@ -1,6 +1,8 @@
 import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -15,6 +17,7 @@ class Ui_MainWindow(object):
         self.lyrics = QtWidgets.QTextBrowser(self.centralwidget)
         self.lyrics.setObjectName("lyrics")
         self.lyrics.setStyleSheet("color: rgb(255,255,255);")
+        self.lyrics.setFont(QFont('Times', 10))
 
         self.song_name = QtWidgets.QLabel(self.centralwidget)
         self.song_name.setText("")
@@ -48,7 +51,10 @@ class Ui_MainWindow(object):
 
         MainWindow.setWindowTitle(_translate("MainWindow", "soptify lyrics-TR"))
         self.song_name.setText(_translate("MainWindow", "şarkı bekleniyor..."))
+        self.song_name.setFont(QFont('Times', 10))
         self.bahadir2.setText(_translate("MainWindow", "tarafından geliştirildi."))
+        self.bahadir2.setFont(QFont('Times', 10))
         self.bahadir.setText("<a href='https://github.com/BAHADIR54' style='color:{}'> BAHADIR54</a>".format("#FFFFFF"))
+        self.bahadir.setFont(QFont('Times', 10))
         self.bahadir.setOpenExternalLinks(True)
 
