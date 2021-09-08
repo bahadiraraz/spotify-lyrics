@@ -1,7 +1,9 @@
 import functions
 from PyQt5.QtCore import QThread, pyqtSignal
+from PyQt5.QtWidgets import QApplication,QMainWindow, QMenu, QAction, QSystemTrayIcon,qApp
 from PyQt5.QtWidgets import QApplication,QMainWindow
 from interface import Ui_MainWindow
+from PyQt5.QtGui import QIcon
 import time
 class SongSelection(QThread):
     song_name = pyqtSignal(str)
@@ -48,10 +50,23 @@ class MainWindow(QMainWindow):
         self.song.lyrics.connect(lambda lyrics: self.ui.lyrics.setText(str(lyrics)))
         self.song.error.connect(lambda error: self.ui.song_name.setText(str(error)))
         self.song.le.connect(lambda le: self.ui.bahadir3.setText(str(("_" * le))))
-        self.song.start()
-
-
-
+        self.song.start()  
+        self.tray_icon = QSystemTrayIcon(self)
+        self.icon5 = QIcon("son5.ico")
+        self.tray_icon.setIcon(self.icon5)
+        show_action = QAction("Show", self)
+        quit_action = QAction("Exit", self)
+        hide_action = QAction("Hide", self)
+        show_action.triggered.connect(self.show)
+        hide_action.triggered.connect(self.hide)
+        quit_action.triggered.connect(qApp.quit)
+        tray_menu = QMenu()
+        tray_menu.addAction(show_action)
+        tray_menu.addAction(hide_action)
+        tray_menu.addAction(quit_action)
+        self.tray_icon.setContextMenu(tray_menu)
+        self.tray_icon.show()
+        
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
