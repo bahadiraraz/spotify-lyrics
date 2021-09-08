@@ -66,7 +66,11 @@ class MainWindow(QMainWindow):
         tray_menu.addAction(quit_action)
         self.tray_icon.setContextMenu(tray_menu)
         self.tray_icon.show()
-        
+
+    def closeEvent(self, event):
+        event.ignore()
+        self.hide()
+
 if __name__ == "__main__":
     import sys
     app = QApplication(sys.argv)
