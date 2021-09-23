@@ -102,7 +102,7 @@ class Ui_MainWindow(object):
         self.bahadir3.setFont(QFont('Times',12,weight=QtGui.QFont.Bold))
         self.bahadir2.setText(_translate("MainWindow", "tarafından geliştirildi."))
         self.bahadir2.setFont(QFont('Times', 10))
-        self.bahadir.setText("<a href='https://github.com/bahadiraraz' style='color:{}'> BAHADIR54</a>".format("#FFFFFF"))
+        self.bahadir.setText("<a href='https://github.com/bahadiraraz' style='color:{}'> bahadir araz</a>".format("#FFFFFF"))
         self.bahadir.setFont(QFont('Times', 10))
         self.bahadir.setOpenExternalLinks(True)
 
